@@ -25,6 +25,11 @@ Without needing to manually check the available slots, keep track/decrease/incre
 When you're done adding to the buffer, you can access its underlying array using the [`chillbuff.array`](https://glitchedpolygons.github.io/chillbuff/structchillbuff.html#ac8c010be0c6998052548372f7d33e614) and [`chillbuff.length`](https://glitchedpolygons.github.io/chillbuff/structchillbuff.html#a8920604755c2669c46a9c28d42c19b4a) fields.
  
 You can also [`clear`](https://glitchedpolygons.github.io/chillbuff/chillbuff_8h.html#a8882aaee3d6540ba9c87e520ce3eb1fc) the buffer: this will reset its [`length`](https://glitchedpolygons.github.io/chillbuff/structchillbuff.html#a8920604755c2669c46a9c28d42c19b4a) to `0` and delete all of its content (the capacity remains untouched though: the underlying array **won't be shrinked**!).
+
+If you want you can set up an error message callback using the [`set_error_callback`](https://glitchedpolygons.github.io/chillbuff/chillbuff_8h.html#a97a3a7a54756cdd4ecf7357e3f30412f) function: pass in a void function pointer that takes 1 `const char*` parameter. If a chillbuff error occurs, its human-readable error message will be passed as a string into the provided callback function. Could be some sort of `printf`, or one of your own error log file writer functions. 
+
+To remove the callback (stop calling the callback and passing error messages into it), just call [`unset_error_callback`](https://glitchedpolygons.github.io/chillbuff/chillbuff_8h.html#ac6713a05d7aaf6afb19bf254a9159408).
+
 #### Strings
 
 ```C
