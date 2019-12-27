@@ -19,6 +19,7 @@
  *  @author Raphael Beck
  *  @date 27. December 2019
  *  @brief Array. Dynamic size. Push back 'n' chill. Buffer stuff. Dynamic stuff that's buff. Dynamically reallocating buff.. Yeah!
+ *  @see https://github.com/GlitchedPolygons/chillbuff
  */
 
 #ifndef CHILLBUFF_H
