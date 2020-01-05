@@ -126,11 +126,15 @@ typedef struct chillbuff
 /** @private */
 static inline void _chillbuff_printerr(const char* error, const char* origin)
 {
-    char error_msg[64 + strlen(error) + strlen(origin)];
-    snprintf(error_msg, sizeof(error_msg), "\nCHILLBUFF ERROR: (%s) %s\n", origin, error);
-    if (_chillbuff_error_callback != NULL)
+    char* error_msg = malloc(64 + strlen(error) + strlen(origin));
+    if (error_msg != NULL)
     {
-        _chillbuff_error_callback(error_msg);
+        snprintf(error_msg, sizeof(error_msg), "\nCHILLBUFF ERROR: (%s) %s\n", origin, error);
+        if (_chillbuff_error_callback != NULL)
+        {
+            _chillbuff_error_callback(error_msg);
+        }
+        free(error_msg);
     }
 }
 
@@ -303,12 +307,12 @@ static int chillbuff_push_back(chillbuff* buff, const void* elements, const size
                 return CHILLBUFF_OUT_OF_MEM;
             }
 
-            memset(new_array + (buff->element_size * buff->length), '\0', (new_capacity - buff->length) * buff->element_size);
+            memset((char*)new_array + (buff->element_size * buff->length), '\0', (new_capacity - buff->length) * buff->element_size);
             buff->array = new_array;
             buff->capacity = new_capacity;
         }
 
-        memcpy(buff->array + (buff->element_size * buff->length++), elements + (i * buff->element_size), buff->element_size);
+        memcpy((char*)buff->array + (buff->element_size * buff->length++), (char*)elements + (i * buff->element_size), buff->element_size);
     }
 
     return CHILLBUFF_SUCCESS;
