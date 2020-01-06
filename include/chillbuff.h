@@ -126,10 +126,11 @@ typedef struct chillbuff
 /** @private */
 static inline void _chillbuff_printerr(const char* error, const char* origin)
 {
-    char* error_msg = malloc(64 + strlen(error) + strlen(origin));
+    const size_t error_length = 64 + strlen(error) + strlen(origin);
+    char* error_msg = malloc(error_length * sizeof(char));
     if (error_msg != NULL)
     {
-        snprintf(error_msg, sizeof(error_msg), "\nCHILLBUFF ERROR: (%s) %s\n", origin, error);
+        snprintf(error_msg, error_length, "\nCHILLBUFF ERROR: (%s) %s\n", origin, error);
         if (_chillbuff_error_callback != NULL)
         {
             _chillbuff_error_callback(error_msg);
