@@ -1,5 +1,5 @@
 ## Disclaimer
-### This project makes use of the [cmocka](https://cmocka.org/) unit testing framework
+### This project makes use of the cmocka unit testing framework
 
 <details>
 <summary>
