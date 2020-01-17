@@ -1,5 +1,5 @@
-[![API Docs](https://img.shields.io/badge/api-docs-informational.svg?style=flat-square)](https://glitchedpolygons.github.io/chillbuff/chillbuff_8h.html)
-[![License Shield](https://img.shields.io/badge/license-Apache--2.0-brightgreen?style=flat-square)](https://github.com/GlitchedPolygons/chillbuff/blob/master/LICENSE)
+[![API Docs](https://img.shields.io/badge/api-docs-informational.svg)](https://glitchedpolygons.github.io/chillbuff/chillbuff_8h.html)
+[![License Shield](https://img.shields.io/badge/license-Apache--2.0-orange)](https://github.com/GlitchedPolygons/chillbuff/blob/master/LICENSE)
 
 # ChillBuff
 ## A super simple, [header-](https://github.com/GlitchedPolygons/chillbuff/blob/master/include/chillbuff.h)only and [Apache-2.0 licensed](https://github.com/GlitchedPolygons/chillbuff/blob/master/LICENSE) dynamic-size array
