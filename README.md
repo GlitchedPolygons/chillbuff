@@ -1,4 +1,5 @@
 [![API Docs](https://img.shields.io/badge/api-docs-informational.svg)](https://glitchedpolygons.github.io/chillbuff/chillbuff_8h.html)
+[![CircleCI](https://circleci.com/gh/GlitchedPolygons/chillbuff.svg?style=shield)](https://circleci.com/gh/GlitchedPolygons/chillbuff)
 [![License Shield](https://img.shields.io/badge/license-Apache--2.0-orange)](https://github.com/GlitchedPolygons/chillbuff/blob/master/LICENSE)
 
 # ChillBuff
