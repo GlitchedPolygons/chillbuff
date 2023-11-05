@@ -17,5 +17,28 @@ project(chillbuff C)
 
 set(CMAKE_C_STANDARD 11)
 
+option(CHILLBUFF_PLATFORM_MALLOC_ALT "Build the library with alternate `malloc` implementation." OFF)
+option(CHILLBUFF_PLATFORM_CALLOC_ALT "Build the library with alternate `calloc` implementation." OFF)
+option(CHILLBUFF_PLATFORM_REALLOC_ALT "Build the library with alternate `realloc` implementation." OFF)
+
+if (CHILLBUFF_PLATFORM_MALLOC_ALT)
+    add_compile_definitions("CHILLBUFF_PLATFORM_MALLOC_ALT=1")
+else ()
+    add_compile_definitions("CHILLBUFF_PLATFORM_MALLOC_ALT=0")
+endif ()
+
+if (CHILLBUFF_PLATFORM_CALLOC_ALT)
+    add_compile_definitions("CHILLBUFF_PLATFORM_CALLOC_ALT=1")
+else ()
+    add_compile_definitions("CHILLBUFF_PLATFORM_CALLOC_ALT=0")
+endif ()
+
+if (CHILLBUFF_PLATFORM_REALLOC_ALT)
+    add_compile_definitions("CHILLBUFF_PLATFORM_REALLOC_ALT=1")
+else ()
+    add_compile_definitions("CHILLBUFF_PLATFORM_REALLOC_ALT=0")
+endif ()
+
+
 add_library(chillbuff INTERFACE)
 target_include_directories(chillbuff INTERFACE include)
