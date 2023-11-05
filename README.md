@@ -13,6 +13,13 @@
 
 Just add the [`include/chillbuff.h`](https://github.com/GlitchedPolygons/chillbuff/blob/master/include/chillbuff.h) header file to your project and you're good to go!
 
+If you want to provide some custom implementation of malloc, calloc or realloc, please define the below pre-processor definition and set the corresponding value to `1`. Additionally, you would also need to provide the alternate implementation for the API via function pointer defined in [utils.h](include/utils.h)
+|   Method  |           Pre-processor           |   Function pointer    |
+|-----------|-----------------------------------|-----------------------|
+|   malloc  |   CHILLBUFF_PLATFORM_MALLOC_ALT   |   chillbuff_malloc    |
+|   calloc  |   CHILLBUFF_PLATFORM_CALLOC_ALT   |   chillbuff_calloc    |
+|   realloc |   CHILLBUFF_PLATFORM_REALLOC_ALT  |   chillbuff_realloc   |
+
 ### What is this?
 
 An array that resizes itself when its maximum capacity is reached. Nothing super fancy either: you can only add and not remove. 

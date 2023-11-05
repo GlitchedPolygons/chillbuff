@@ -24,6 +24,7 @@ set(TESTS tests.c)
 
 add_executable(run_tests ${TESTS})
 
+add_compile_definitions("CHILLBUFF_PLATFORM_REALLOC_ALT=1")
 target_include_directories(run_tests PUBLIC ${cmocka_INCLUDE_DIR})
 
 target_link_libraries(run_tests PUBLIC chillbuff cmocka)

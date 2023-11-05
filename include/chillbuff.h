@@ -30,9 +30,9 @@ extern "C" {
 #endif
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include "utils.h"
 
 /* The following are the chillbuff exit codes returned from the various chillbuff functions. */
 
@@ -127,7 +127,7 @@ typedef struct chillbuff
 static inline void _chillbuff_printerr(const char* error, const char* origin)
 {
     const size_t error_length = 64 + strlen(error) + strlen(origin);
-    char* error_msg = (char*)malloc(error_length * sizeof(char)); // cast malloc because of compat with C++ D:
+    char* error_msg = (char*)chillbuff_malloc(error_length * sizeof(char)); // cast malloc because of compat with C++ D:
     if (error_msg != NULL)
     {
         snprintf(error_msg, error_length, "\nCHILLBUFF ERROR: (%s) %s\n", origin, error);
@@ -197,7 +197,7 @@ static inline int chillbuff_init(chillbuff* buff, const size_t initial_capacity,
     buff->element_size = element_size;
     buff->growth_method = growth_method;
     buff->capacity = initial_capacity == 0 ? 16 : initial_capacity;
-    buff->array = calloc(buff->capacity, buff->element_size);
+    buff->array = chillbuff_calloc(buff->capacity, buff->element_size);
 
     if (buff->array == NULL)
     {
@@ -301,7 +301,7 @@ static int chillbuff_push_back(chillbuff* buff, const void* elements, const size
                 return CHILLBUFF_OVERFLOW;
             }
 
-            void* new_array = realloc(buff->array, new_capacity * buff->element_size);
+            void* new_array = chillbuff_realloc(buff->array, new_capacity * buff->element_size);
             if (new_array == NULL)
             {
                 _chillbuff_printerr("Couldn't resize chillbuff underlying array; OUT OF MEMORY!", __func__);
