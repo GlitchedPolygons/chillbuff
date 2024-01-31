@@ -13,7 +13,9 @@
 
 Just add the [`include/chillbuff.h`](https://github.com/GlitchedPolygons/chillbuff/blob/master/include/chillbuff.h) header file to your project and you're good to go!
 
-If you want to provide some custom implementation of malloc, calloc or realloc, please define the below pre-processor definition and set the corresponding value to `1`. Additionally, you would also need to provide the alternate implementation for the API via function pointer defined in [utils.h](include/utils.h)
+If you want to provide some custom implementation of `malloc`, `calloc` or `realloc`, please define the below pre-processor definitions and set their corresponding value to `1`. 
+Additionally, you would also need to provide the alternate implementation for the API via function pointer defined [at the top of the chillbuff header file.](https://github.com/GlitchedPolygons/chillbuff/blob/258d029092f11eb6275d7cc4e3430cadd2a8b663/include/chillbuff.h#L91)
+
 |   Method  |           Pre-processor           |   Function pointer    |
 |-----------|-----------------------------------|-----------------------|
 |   malloc  |   CHILLBUFF_PLATFORM_MALLOC_ALT   |   chillbuff_malloc    |
