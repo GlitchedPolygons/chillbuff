@@ -1,3 +1,10 @@
+> [!IMPORTANT]
+>
+> # **NOTICE:**
+>
+> ## Development of this project has been migrated to: https://codeberg.org/GlitchedPolygons/chillbuff
+>
+> ## All pull requests and issues on GitHub will be ignored from the 16th of August, 2025 onwards.
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4020226c209c432eb8a21752fdbc9e41)](https://www.codacy.com/manual/GlitchedPolygons/chillbuff?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=GlitchedPolygons/chillbuff&amp;utm_campaign=Badge_Grade)
 [![Build status](https://ci.appveyor.com/api/projects/status/hru1ndvsobkay374/branch/master?svg=true)](https://ci.appveyor.com/project/GlitchedPolygons/chillbuff/branch/master)
@@ -5,13 +12,14 @@
 [![License Shield](https://img.shields.io/badge/license-Apache--2.0-orange)](https://github.com/GlitchedPolygons/chillbuff/blob/master/LICENSE)
 
 # ChillBuff
+
 ## A super simple, [header-](https://github.com/GlitchedPolygons/chillbuff/blob/master/include/chillbuff.h)[only](https://en.wikipedia.org/wiki/Header-only) and [Apache-2.0 licensed](https://github.com/GlitchedPolygons/chillbuff/blob/master/LICENSE) dynamic-size array
 
 > ᐳᐳ  Check out the API docs [here on github.io](https://glitchedpolygons.github.io/chillbuff/chillbuff_8h.html)
 
 ### How to build
 
-Just add the [`include/chillbuff.h`](https://github.com/GlitchedPolygons/chillbuff/blob/master/include/chillbuff.h) header file to your project and you're good to go!
+Just add the `include/chillbuff.h` header file to your project and you're good to go!
 
 If you want to provide some custom implementation of `malloc`, `calloc` or `realloc`, please define the below pre-processor definitions and set their corresponding value to `1`. 
 Additionally, you would also need to provide the alternate implementation for the API via function pointer defined [at the top of the chillbuff header file.](https://github.com/GlitchedPolygons/chillbuff/blob/258d029092f11eb6275d7cc4e3430cadd2a8b663/include/chillbuff.h#L91)
